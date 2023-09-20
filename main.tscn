@@ -1,11 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmb3oft1f0i3s"]
+[gd_scene load_steps=6 format=3 uid="uid://bmb3oft1f0i3s"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_i7i5w"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_os6k1"]
 
-[node name="main" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y16in"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkjva"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3458g"]
+
+[node name="main" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.766762, -0.641932, 0, 0.641932, 0.766762, 0, 0, -5.22754)
 mesh = SubResource("BoxMesh_os6k1")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_i7i5w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_y16in")
+
+[node name="Neck" type="Node3D" parent="CharacterBody3D"]
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.692235, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CharacterBody3D/Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.677217, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.14033, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(2543.49, 0, 0, 0, 1, 0, 0, 0, 3005.58, 0, 0, 0)
+shape = SubResource("BoxShape3D_qkjva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_3458g")
+skeleton = NodePath("../..")
