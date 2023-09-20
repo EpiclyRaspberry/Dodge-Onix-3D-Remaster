@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwy653x4wf28v"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_1fu56"]
+[ext_resource type="AudioStream" uid="uid://c000tncj8vgkf" path="res://testing/talkdown.mp3" id="2_32v0s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y16in"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkjva"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3458g"]
+
+[node name="test_room1" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_1fu56")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_y16in")
+
+[node name="Neck" type="Node3D" parent="CharacterBody3D"]
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.692235, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CharacterBody3D/Neck/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0150173, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.14033, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(2543.49, 0, 0, 0, 1, 0, 0, 0, 3005.58, 0, 0, 0)
+shape = SubResource("BoxShape3D_qkjva")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_3458g")
+skeleton = NodePath("../..")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.805931, 6.89779)
+stream = ExtResource("2_32v0s")
+autoplay = true
+max_distance = 73.8
