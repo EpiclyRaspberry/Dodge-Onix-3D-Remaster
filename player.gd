@@ -37,14 +37,16 @@ func _physics_process(delta: float) -> void:
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:
-		print(direction)
-		ACCERATION += 0.1
+		if ACCERATION < 1.5:
+			ACCERATION += 0.1
 		print(direction)
 		velocity.x = direction.x * SPEED * ACCERATION
 		velocity.z = direction.z * SPEED * ACCERATION
 	else:
-		velocity.x = ACCERATION * SPEED
-		velocity.z = ACCERATION * SPEED
+		velocity.x = velocity.x * ACCERATION 
+		velocity.z = velocity.z * ACCERATION
+		if ACCERATION > 0:
+			ACCERATION -= 0.1
 
 	print(velocity)
 
