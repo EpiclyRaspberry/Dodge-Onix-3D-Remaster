@@ -1,19 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmb3oft1f0i3s"]
+[gd_scene load_steps=9 format=3 uid="uid://bmb3oft1f0i3s"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_i7i5w"]
+[ext_resource type="Texture2D" uid="uid://b1tfkw4huo6ji" path="res://1024x1024.png" id="2_nu84c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_os6k1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y16in"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mws0y"]
+radius = 0.519583
+height = 2.04952
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_qkjva"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cr15o"]
+albedo_texture = ExtResource("2_nu84c")
+uv1_scale = Vector3(500, 500, 500)
+
 [sub_resource type="BoxMesh" id="BoxMesh_3458g"]
+material = SubResource("StandardMaterial3D_cr15o")
 
 [node name="main" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.996583, -0.0825995, 0, 0.0825995, 0.996583, 0, 0, 0, 1, 0, 1230.73, 0)
+transform = Transform3D(0.996583, -0.0815658, -0.0130268, 0.0825995, 0.984111, 0.157171, 9.31322e-10, -0.15771, 0.987485, 0, 2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.766762, -0.641932, 0, 0.641932, 0.766762, 0, 0, -5.22754)
@@ -25,18 +35,31 @@ script = ExtResource("1_i7i5w")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_y16in")
 
+[node name="playercol" type="Area3D" parent="CharacterBody3D/CollisionShape3D"]
+
+[node name="playercolcol" type="CollisionShape3D" parent="CharacterBody3D/CollisionShape3D/playercol"]
+shape = SubResource("CapsuleShape3D_mws0y")
+
 [node name="Neck" type="Node3D" parent="CharacterBody3D"]
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.692235, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/Neck/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692235, 0)
+light_energy = 16.0
+spot_range = 42.3564
+spot_angle = 30.8605
+
+[node name="ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.14033, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
 transform = Transform3D(2543.49, 0, 0, 0, 1, 0, 0, 0, 3005.58, 0, 0, 0)
 shape = SubResource("BoxShape3D_qkjva")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ground/CollisionShape3D"]
 mesh = SubResource("BoxMesh_3458g")
 skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="CharacterBody3D/CollisionShape3D/playercol" to="CharacterBody3D" method="_on_playercol_body_entered"]

@@ -11,6 +11,13 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
 
+func rotate_vec(vec: Vector2, angle_deg: int) -> Vector2:
+	var rad = deg_to_rad(angle_deg)
+	var nx = vec.x * cos(rad) - vec.y * sin(rad)
+	var ny = vec.x * sin(rad) + vec.y * cos(rad)
+	return Vector2(nx,ny)
+	pass
+
 func _unhandled_input(event: InputEvent) -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -39,15 +46,29 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		if ACCERATION < 1.5:
 			ACCERATION += 0.1
-		print(direction)
+		#print(direction)
 		velocity.x = direction.x * SPEED * ACCERATION
 		velocity.z = direction.z * SPEED * ACCERATION
 	else:
-		velocity.x = velocity.x * ACCERATION 
-		velocity.z = velocity.z * ACCERATION
 		if ACCERATION > 0:
 			ACCERATION -= 0.1
-
-	print(velocity)
+		var vec = rotate_vec(Vector2(ACCERATION,0),neck.rotation_degrees.y)
+		print(vec)
+		velocity = velocity + Vector3(vec.x,0,vec.y)
+		print(velocity)
+#		if ACCERATION > 0:
+#			ACCERATION -= 0.075
+			
+	
 
 	move_and_slide()
+
+
+
+
+func _on_playercol_body_entered(body):
+	if body.name == "ground":
+		if Input.is_action_pressed("ui_accept") and Input.is_action_pressed("crouch") and not Input.is_action_pressed("back"):
+			print("abh")
+			velocity.z = velocity.z - 1
+	pass # Replace with function body.
