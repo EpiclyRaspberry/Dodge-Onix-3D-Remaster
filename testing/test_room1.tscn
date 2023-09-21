@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwy653x4wf28v"]
+[gd_scene load_steps=11 format=3 uid="uid://dwy653x4wf28v"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1fu56"]
 [ext_resource type="AudioStream" uid="uid://c000tncj8vgkf" path="res://testing/talkdown.mp3" id="2_32v0s"]
+[ext_resource type="Script" path="res://testing/test_saferoom.gd" id="3_5p2hd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y16in"]
 
@@ -20,6 +21,11 @@ fog_enabled = true
 volumetric_fog_enabled = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_e4nsh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c7867"]
+size = Vector3(14.5884, 14.9046, 10.2651)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mhb00"]
 
 [node name="test_room1" type="Node3D"]
 
@@ -62,3 +68,30 @@ environment = SubResource("Environment_jbuag")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.766762, -0.641932, 0, 0.641932, 0.766762, 0, 0, -5.22754)
 mesh = SubResource("BoxMesh_e4nsh")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -115.0
+offset_right = 87.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "You are in a safe room"
+
+[node name="saferoom" type="Area3D" parent="."]
+script = ExtResource("3_5p2hd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="saferoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.23363, 0)
+shape = SubResource("BoxShape3D_c7867")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="saferoom/CollisionShape3D"]
+transform = Transform3D(16.3918, 0, 0, 0, 24.1918, 0, 0, 0, 11.0895, 0, 0, 0)
+mesh = SubResource("BoxMesh_mhb00")
+
+[connection signal="body_entered" from="saferoom" to="CharacterBody3D" method="_on_saferoom_body_entered"]

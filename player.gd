@@ -63,12 +63,13 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
-
-
 func _on_playercol_body_entered(body):
 	if body.name == "ground":
 		if Input.is_action_pressed("ui_accept") and Input.is_action_pressed("crouch") and not Input.is_action_pressed("back"):
 			print("abh")
 			velocity.z = velocity.z - 1
 	pass # Replace with function body.
+
+
+func _on_saferoom_body_entered(body):
+	print("fire")
