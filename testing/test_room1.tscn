@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwy653x4wf28v"]
+[gd_scene load_steps=8 format=3 uid="uid://dwy653x4wf28v"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1fu56"]
 [ext_resource type="AudioStream" uid="uid://c000tncj8vgkf" path="res://testing/talkdown.mp3" id="2_32v0s"]
@@ -9,7 +9,24 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_3458g"]
 
+[sub_resource type="Environment" id="Environment_jbuag"]
+reflected_light_source = 2
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+glow_normalized = true
+fog_enabled = true
+volumetric_fog_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_e4nsh"]
+
 [node name="test_room1" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0043458, 0.999991, 0, -0.999991, -0.0043458, 0, 74.5232, 0)
+light_color = Color(0.854902, 0.396078, 0, 1)
+light_volumetric_fog_energy = 2.553
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 script = ExtResource("1_1fu56")
@@ -21,9 +38,6 @@ shape = SubResource("CapsuleShape3D_y16in")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.692235, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CharacterBody3D/Neck/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0150173, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.14033, 0)
@@ -41,3 +55,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.805931, 6.89779)
 stream = ExtResource("2_32v0s")
 autoplay = true
 max_distance = 73.8
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jbuag")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.766762, -0.641932, 0, 0.641932, 0.766762, 0, 0, -5.22754)
+mesh = SubResource("BoxMesh_e4nsh")
