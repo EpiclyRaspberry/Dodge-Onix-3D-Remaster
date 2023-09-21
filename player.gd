@@ -29,6 +29,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("ui_cancel"):
 		get_tree().paused = true
 
+	if Input.is_action_pressed("crouch"):
+		$CollisionShape3D.scale.y = 0.5
+	else:
+		$CollisionShape3D.scale.y = 1
+
+
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
