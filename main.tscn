@@ -63,3 +63,4 @@ mesh = SubResource("BoxMesh_3458g")
 skeleton = NodePath("../..")
 
 [connection signal="body_entered" from="CharacterBody3D/CollisionShape3D/playercol" to="CharacterBody3D" method="_on_playercol_body_entered"]
+[connection signal="body_exited" from="CharacterBody3D/CollisionShape3D/playercol" to="CharacterBody3D" method="_on_playercol_body_exited"]

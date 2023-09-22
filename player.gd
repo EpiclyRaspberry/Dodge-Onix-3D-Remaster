@@ -5,12 +5,15 @@ const SPEED = 5
 const JUMP_VELOCITY = 4.5
 
 var ACCERATION = 0
+var DECCELERATION = 0.00001
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
 
+var isgrounded: bool = false
+var can_abh: bool = false
 func rotate_vec(vec: Vector2, angle_deg: int) -> Vector2:
 	var rad = deg_to_rad(angle_deg)
 	var nx = vec.x * cos(rad) - vec.y * sin(rad)
@@ -43,6 +46,8 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	print(isgrounded)
+	
 	if direction:
 		if ACCERATION < 1.5:
 			ACCERATION += 0.1
@@ -50,12 +55,19 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * SPEED * ACCERATION
 		velocity.z = direction.z * SPEED * ACCERATION
 	else:
-		if ACCERATION > 0:
-			ACCERATION -= 0.1
-		var vec = rotate_vec(Vector2(ACCERATION,0),neck.rotation_degrees.y)
-		print(vec)
-		velocity = velocity + Vector3(vec.x,0,vec.y)
-		print(velocity)
+		if can_abh:
+			velocity.x = velocity.x*-1.05
+			velocity.z = velocity.z*-1.05
+		else:
+			velocity.x = velocity.x/1.05
+			velocity.z = velocity.z/1.05
+		
+#		if ACCERATION > 0:
+#			ACCERATION -= 0.1
+#		var vec = rotate_vec(Vector2(ACCERATION,0),neck.rotation_degrees.y)
+#		print(vec)
+#		velocity = velocity - Vector3(-vec.x,0,-vec.y)
+#		print(velocity)
 #		if ACCERATION > 0:
 #			ACCERATION -= 0.075
 			
@@ -65,11 +77,15 @@ func _physics_process(delta: float) -> void:
 
 func _on_playercol_body_entered(body):
 	if body.name == "ground":
+		isgrounded = true
 		if Input.is_action_pressed("ui_accept") and Input.is_action_pressed("crouch") and not Input.is_action_pressed("back"):
-			print("abh")
-			velocity.z = velocity.z - 1
+			can_abh = true
+		else: can_abh = false
 	pass # Replace with function body.
 
 
-func _on_saferoom_body_entered(body):
-	print("fire")
+
+func _on_playercol_body_exited(body):
+	if body.name == "ground":
+		isgrounded = false
+	pass # Replace with function body.
