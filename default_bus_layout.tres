@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://c3v4eq6ukgpgt"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://c3v4eq6ukgpgt"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_c0cew"]
 resource_name = "Reverb"
@@ -9,8 +9,15 @@ hipass = 0.4
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_4dyfp"]
 resource_name = "LowPassFilter"
 
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_8uimk"]
+resource_name = "Distortion"
+mode = 4
+drive = 0.25
+
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectReverb_c0cew")
 bus/0/effect/0/enabled = true
 bus/0/effect/1/effect = SubResource("AudioEffectLowPassFilter_4dyfp")
 bus/0/effect/1/enabled = false
+bus/0/effect/2/effect = SubResource("AudioEffectDistortion_8uimk")
+bus/0/effect/2/enabled = true

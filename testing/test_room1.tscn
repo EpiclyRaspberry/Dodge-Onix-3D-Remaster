@@ -60,6 +60,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.805931, 6.89779)
 stream = ExtResource("2_1xwta")
 max_db = 1.544
+pitch_scale = 0.9
 autoplay = true
 max_distance = 73.8
 emission_angle_enabled = true
