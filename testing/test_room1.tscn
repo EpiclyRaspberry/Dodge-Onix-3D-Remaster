@@ -100,5 +100,6 @@ transform = Transform3D(16.3918, 0, 0, 0, 24.1918, 0, 0, 0, 11.0895, 0, 0, 0)
 mesh = SubResource("BoxMesh_mhb00")
 
 [node name="scene" parent="." instance=ExtResource("4_hnb7a")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -1.74372, 11.7525)
 
 [connection signal="body_entered" from="saferoom" to="CharacterBody3D" method="_on_saferoom_body_entered"]
