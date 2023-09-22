@@ -12,14 +12,19 @@
 [sub_resource type="BoxMesh" id="BoxMesh_3458g"]
 
 [sub_resource type="Environment" id="Environment_jbuag"]
-reflected_light_source = 2
+tonemap_mode = 1
 ssao_enabled = true
+ssao_radius = 0.31
+ssao_intensity = 0.11
 ssil_enabled = true
 sdfgi_enabled = true
-glow_enabled = true
+sdfgi_use_occlusion = true
 glow_normalized = true
 fog_enabled = true
+fog_light_color = Color(0.517647, 0.552941, 0.607843, 1)
 volumetric_fog_enabled = true
+adjustment_contrast = 1.17
+adjustment_saturation = 0.91
 
 [sub_resource type="BoxMesh" id="BoxMesh_e4nsh"]
 
@@ -101,5 +106,13 @@ mesh = SubResource("BoxMesh_mhb00")
 
 [node name="scene" parent="." instance=ExtResource("4_hnb7a")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -1.74372, 11.7525)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.802078, 0.597219, 0, -0.597219, 0.802078, 0, 6.89321, 19.8717)
+light_energy = 16.0
+light_volumetric_fog_energy = 3.144
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 30.271
 
 [connection signal="body_entered" from="saferoom" to="CharacterBody3D" method="_on_saferoom_body_entered"]
