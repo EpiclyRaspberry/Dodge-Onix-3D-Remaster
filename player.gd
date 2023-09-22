@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	
 	print(isgrounded)
 	
-	if direction:
+	if direction: 
 		if ACCERATION < 1.05:
 			ACCERATION += 0.05
 		#print(direction)

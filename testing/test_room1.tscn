@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwy653x4wf28v"]
+[gd_scene load_steps=12 format=3 uid="uid://dwy653x4wf28v"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1fu56"]
 [ext_resource type="AudioStream" uid="uid://dnc4srupkhq65" path="res://testing/nicopatty - safe room.mp3" id="2_1xwta"]
 [ext_resource type="Script" path="res://testing/test_saferoom.gd" id="3_5p2hd"]
+[ext_resource type="PackedScene" uid="uid://dn8wjrspr865k" path="res://assets/model/portal_turret/scene.gltf" id="4_hnb7a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y16in"]
 
@@ -38,6 +39,7 @@ light_volumetric_fog_energy = 2.553
 script = ExtResource("1_1fu56")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_y16in")
 
 [node name="Neck" type="Node3D" parent="CharacterBody3D"]
@@ -96,5 +98,7 @@ shape = SubResource("BoxShape3D_c7867")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="saferoom/CollisionShape3D"]
 transform = Transform3D(16.3918, 0, 0, 0, 24.1918, 0, 0, 0, 11.0895, 0, 0, 0)
 mesh = SubResource("BoxMesh_mhb00")
+
+[node name="scene" parent="." instance=ExtResource("4_hnb7a")]
 
 [connection signal="body_entered" from="saferoom" to="CharacterBody3D" method="_on_saferoom_body_entered"]
