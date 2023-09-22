@@ -49,8 +49,8 @@ func _physics_process(delta: float) -> void:
 	print(isgrounded)
 	
 	if direction:
-		if ACCERATION < 1.5:
-			ACCERATION += 0.1
+		if ACCERATION < 1.05:
+			ACCERATION += 0.05
 		#print(direction)
 		velocity.x = direction.x * SPEED * ACCERATION
 		velocity.z = direction.z * SPEED * ACCERATION
@@ -62,8 +62,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = velocity.x/1.05
 			velocity.z = velocity.z/1.05
 		
-#		if ACCERATION > 0:
-#			ACCERATION -= 0.1
+		ACCERATION = 0
 #		var vec = rotate_vec(Vector2(ACCERATION,0),neck.rotation_degrees.y)
 #		print(vec)
 #		velocity = velocity - Vector3(-vec.x,0,-vec.y)
