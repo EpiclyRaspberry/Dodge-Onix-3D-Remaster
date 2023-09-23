@@ -40,4 +40,3 @@ func _on_getframetime_timeout():
 func _on_http_request_request_completed(result, response_code, headers, body):
 	requesting = false  
 	ipv4 = body.get_string_from_utf8()
-	print(ipv4)
