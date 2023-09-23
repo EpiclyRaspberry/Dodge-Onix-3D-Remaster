@@ -90,7 +90,7 @@ func _physics_process(delta: float) -> void:
 		if can_abh:
 			velocity.x = velocity.x*-1.05
 			velocity.z = velocity.z*-1.05
-		else:
+		else: if isgrounded:
 			velocity.x = velocity.x/1.05
 			velocity.z = velocity.z/1.05
 		

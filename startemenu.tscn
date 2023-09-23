@@ -7,9 +7,8 @@
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = -16.0
-offset_right = 1600.0
-offset_bottom = 884.0
+offset_right = 1152.0
+offset_bottom = 664.0
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 1
@@ -27,4 +26,5 @@ grow_vertical = 2
 text = "start"
 script = ExtResource("1_i3bs0")
 
+[connection signal="size_flags_changed" from="Control" to="Control/Button" method="_on_control_size_flags_changed"]
 [connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]

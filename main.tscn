@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmb3oft1f0i3s"]
+[gd_scene load_steps=10 format=3 uid="uid://bmb3oft1f0i3s"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_h2t6g"]
 [ext_resource type="Script" path="res://player.gd" id="1_i7i5w"]
 [ext_resource type="Texture2D" uid="uid://b1tfkw4huo6ji" path="res://1024x1024.png" id="2_nu84c"]
 
@@ -21,6 +22,7 @@ uv1_scale = Vector3(500, 500, 500)
 material = SubResource("StandardMaterial3D_cr15o")
 
 [node name="main" type="Node3D"]
+script = ExtResource("1_h2t6g")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.996583, -0.0815658, -0.0130268, 0.0825995, 0.984111, 0.157171, 9.31322e-10, -0.15771, 0.987485, 0, 2, 0)
@@ -51,6 +53,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692235, 0)
 light_energy = 16.0
 spot_range = 42.3564
 spot_angle = 30.8605
+
+[node name="Control" type="Control" parent="CharacterBody3D/Neck/Camera3D"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fpslabel" type="RichTextLabel" parent="CharacterBody3D/Neck/Camera3D/Control"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 40.0
+text = "FPS"
 
 [node name="ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.14033, 0)
