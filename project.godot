@@ -58,10 +58,7 @@ crouch={
 
 [rendering]
 
-<<<<<<< Updated upstream
-renderer/rendering_method.mobile="forward_plus"
-textures/vram_compression/import_s3tc_bptc=true
-=======
 renderer/rendering_method.mobile="gl_compatibility"
->>>>>>> Stashed changes
+textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
+<<<<<<<Updatedupstreamrenderer/rendering_method.mobile="forward_plus"
