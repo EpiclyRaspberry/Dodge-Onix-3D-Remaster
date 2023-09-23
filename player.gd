@@ -7,7 +7,8 @@ const JUMP_VELOCITY = 4.5
 var ACCERATION = 0
 var DECCELERATION = 0.00001
 var neckie = 0 
-
+var direction
+var input_dir
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var neck := $Neck
@@ -15,6 +16,23 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var isgrounded: bool = false
 var can_abh: bool = false
+
+#camera stuffs
+var zcamtimer = Timer.new()
+const ZTILTSMOOTHNESS = 20
+var ztiltlist1 = []
+
+func _ready():
+	
+	const HALFPI = PI/2
+	for i in range(ZTILTSMOOTHNESS):
+		#change the inside to change the interpolation you want
+		ztiltlist1.append(sin(HALFPI/ZTILTSMOOTHNESS)*i)
+	zcamtimer.connect("timeout",zcameratilt)
+	zcamtimer.wait_time = 0.05
+	zcamtimer.one_shot = false
+	add_child(zcamtimer)
+	zcamtimer.start()
 func rotate_vec(vec: Vector2, angle_deg: int) -> Vector2:
 	var rad = deg_to_rad(angle_deg)
 	var nx = vec.x * cos(rad) - vec.y * sin(rad)
@@ -44,8 +62,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	var input_dir := Input.get_vector("left", "right", "forward", "back")
-	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	input_dir = Input.get_vector("left", "right", "forward", "back")
+	direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	#if neckie < 1 and neckie > -1:
 	#	neckie += input_dir.x / 10
@@ -53,9 +71,13 @@ func _physics_process(delta: float) -> void:
 	# code purpusely to make the camera smooth but i failed
 	
 	print(isgrounded)
+#
+#	print(neck.rotation.z) # quake camera 
+#	neck.rotation.z = (rotation.z + (input_dir.x / 10))
 	
-	print(neck.rotation.z) # quake camera 
-	neck.rotation.z = (rotation.z + (input_dir.x / 10))
+	#smoother attemp using sine wave
+	
+	
 	
 	if direction: 
 		if ACCERATION < 1.05:
@@ -82,6 +104,22 @@ func _physics_process(delta: float) -> void:
 	
 
 	move_and_slide()
+
+var zci = 0
+func zcameratilt():
+	if input_dir.x:
+		if zci < ZTILTSMOOTHNESS-1:
+			zci += 1
+	else:
+		#fix this pls if you can
+		if zci > 0: zci -=1
+		elif zci < 0: zci += 1
+	neck.rotation.z = (ztiltlist1[zci]*input_dir.x)/ZTILTSMOOTHNESS
+	
+	
+		
+	
+
 
 func _on_playercol_body_entered(body):
 	if body.name == "ground":
