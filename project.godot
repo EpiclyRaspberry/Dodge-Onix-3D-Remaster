@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.1", "Mobile")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 config/icon="res://icon.svg"
 
+[autoload]
+
+Telemetry="*res://internal/telemetry.tscn"
+
 [filesystem]
 
 import/fbx/enabled=false

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfrysacw6n8nw"]
+
+[ext_resource type="Script" path="res://internal/telemetry.gd" id="1_vsr8f"]
+
+[node name="telemetry" type="Node"]
+script = ExtResource("1_vsr8f")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 10.0
+autostart = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="HTTPRequest2" type="HTTPRequest" parent="."]
+
+[node name="getframetime" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="timeout" from="getframetime" to="." method="_on_getframetime_timeout"]
