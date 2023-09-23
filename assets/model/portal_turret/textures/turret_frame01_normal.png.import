@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfswk1s46uxbt"
 path.s3tc="res://.godot/imported/turret_frame01_normal.png-e0a7035ab85cabfcb7c1bcaf18e8d868.s3tc.ctex"
+path.etc2="res://.godot/imported/turret_frame01_normal.png-e0a7035ab85cabfcb7c1bcaf18e8d868.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/model/portal_turret/textures/turret_frame01_normal.png"
-dest_files=["res://.godot/imported/turret_frame01_normal.png-e0a7035ab85cabfcb7c1bcaf18e8d868.s3tc.ctex"]
+dest_files=["res://.godot/imported/turret_frame01_normal.png-e0a7035ab85cabfcb7c1bcaf18e8d868.s3tc.ctex", "res://.godot/imported/turret_frame01_normal.png-e0a7035ab85cabfcb7c1bcaf18e8d868.etc2.ctex"]
 
 [params]
 

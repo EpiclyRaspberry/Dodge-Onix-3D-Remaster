@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfbohjmao2bbj"
 path.s3tc="res://.godot/imported/turret_eye_baseColor.png-6426a1eca7df8d41219a9f3467438dea.s3tc.ctex"
+path.etc2="res://.godot/imported/turret_eye_baseColor.png-6426a1eca7df8d41219a9f3467438dea.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/model/portal_turret/textures/turret_eye_baseColor.png"
-dest_files=["res://.godot/imported/turret_eye_baseColor.png-6426a1eca7df8d41219a9f3467438dea.s3tc.ctex"]
+dest_files=["res://.godot/imported/turret_eye_baseColor.png-6426a1eca7df8d41219a9f3467438dea.s3tc.ctex", "res://.godot/imported/turret_eye_baseColor.png-6426a1eca7df8d41219a9f3467438dea.etc2.ctex"]
 
 [params]
 

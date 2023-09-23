@@ -44,6 +44,7 @@ shape = SubResource("CapsuleShape3D_mws0y")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Neck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.692235, 0)
+doppler_tracking = 2
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/Neck/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692235, 0)
