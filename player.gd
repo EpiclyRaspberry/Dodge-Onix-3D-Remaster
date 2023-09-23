@@ -27,7 +27,7 @@ func _ready():
 	const HALFPI = PI/2
 	for i in range(ZTILTSMOOTHNESS):
 		#change the inside to change the interpolation you want
-		ztiltlist1.append(log(HALFPI/ZTILTSMOOTHNESS)*i)
+		ztiltlist1.append(sin(HALFPI/ZTILTSMOOTHNESS)*i)
 	zcamtimer.connect("timeout",zcameratilt)
 	zcamtimer.wait_time = 0.05
 	zcamtimer.one_shot = false
