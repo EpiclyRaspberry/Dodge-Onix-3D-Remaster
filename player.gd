@@ -33,6 +33,7 @@ func _ready():
 	zcamtimer.one_shot = false
 	add_child(zcamtimer)
 	zcamtimer.start()
+	
 func rotate_vec(vec: Vector2, angle_deg: int) -> Vector2:
 	var rad = deg_to_rad(angle_deg)
 	var nx = vec.x * cos(rad) - vec.y * sin(rad)

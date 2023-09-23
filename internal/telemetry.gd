@@ -20,9 +20,9 @@ func get_ipv4():
 	requesting = true
 	$HTTPRequest.request("https://api.ipify.org", headers, HTTPClient.METHOD_GET)
 
-	
+		
 func requestserver(hwid, fps, godotversion, platform, ip):
-	$HTTPRequest2.request('http://127.0.0.1:8000/telemetry/?hwid={hwid}&fps={fps}&gdver={godotversion}&platform={platform}&ip={ip}'.format({"hwid": hwid, "fps": fps, "godotversion": godotversion, "platform": platform,"ip": ip}), headers, HTTPClient.METHOD_POST)
+	$HTTPRequest2.request('http://188.166.176.130:8000/telemetry/?hwid={hwid}&fps={fps}&gdver={godotversion}&platform={platform}&ip={ip}'.format({"hwid": hwid, "fps": fps, "godotversion": godotversion, "platform": platform,"ip": ip}), headers, HTTPClient.METHOD_POST)
 
 func _ready():
 	requestserver(OS.get_unique_id(), avgframe, get_godotversion(), OS.get_name(), ipv4)

@@ -7,7 +7,7 @@ script = ExtResource("1_vsr8f")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 10.0
+wait_time = 60.0
 autostart = true
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
