@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 4.5
 
 var ACCERATION = 0
 var DECCELERATION = 0.00001
+var neckie = 0 
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -46,11 +47,19 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "forward", "back")
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	#if neckie < 1 and neckie > -1:
+	#	neckie += input_dir.x / 10
+	
+	# code purpusely to make the camera smooth but i failed
+	
 	print(isgrounded)
+	
+	print(neck.rotation.z) # quake camera 
+	neck.rotation.z = (rotation.z + (input_dir.x / 10))
 	
 	if direction: 
 		if ACCERATION < 1.05:
-			ACCERATION += 0.05
+			ACCERATION 		+= 0.05
 		#print(direction)
 		velocity.x = direction.x * SPEED * ACCERATION
 		velocity.z = direction.z * SPEED * ACCERATION
