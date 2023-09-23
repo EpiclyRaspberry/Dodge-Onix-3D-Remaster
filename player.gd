@@ -27,7 +27,7 @@ func _ready():
 	const HALFPI = PI/2
 	for i in range(ZTILTSMOOTHNESS):
 		#change the inside to change the interpolation you want
-		ztiltlist1.append(sin(HALFPI/ZTILTSMOOTHNESS)*i)
+		ztiltlist1.append(log(HALFPI/ZTILTSMOOTHNESS)*i)
 	zcamtimer.connect("timeout",zcameratilt)
 	zcamtimer.wait_time = 0.05
 	zcamtimer.one_shot = false
@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 	
 	# code purpusely to make the camera smooth but i failed
 	
-	print(isgrounded)
+	#print(isgrounded)
 #
 #	print(neck.rotation.z) # quake camera 
 #	neck.rotation.z = (rotation.z + (input_dir.x / 10))
@@ -112,8 +112,12 @@ func zcameratilt():
 			zci += 1
 	else:
 		#fix this pls if you can
-		if zci > 0: zci -=1
-		elif zci < 0: zci += 1
+		neck.rotation.z = (ztiltlist1[zci]*input_dir.x)/ZTILTSMOOTHNESS
+		if zci > 0:
+			zci -= 1
+			print(zci)
+		
+		#elif zci < 0: zci += 1
 	neck.rotation.z = (ztiltlist1[zci]*input_dir.x)/ZTILTSMOOTHNESS
 	
 	
