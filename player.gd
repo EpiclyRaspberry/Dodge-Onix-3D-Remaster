@@ -6,33 +6,37 @@ const JUMP_VELOCITY = 4.5
 
 var ACCERATION = 0
 var DECCELERATION = 0.00001
-var neckie = 0 
 var direction
 var input_dir
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
 
 var isgrounded: bool = false
 var can_abh: bool = false
+const HALFPI = PI/2
+##camera stuffs
+#var zcamtimer = Timer.new()
+#const ZTILTSMOOTHNESS = 20
+#var ztiltlist1 = []
 
-#camera stuffs
-var zcamtimer = Timer.new()
-const ZTILTSMOOTHNESS = 20
-var ztiltlist1 = []
+var cameratilt_speed = 5
 
 func _ready():
-	
-	const HALFPI = PI/2
-	for i in range(ZTILTSMOOTHNESS):
-		#change the inside to change the interpolation you want
-		ztiltlist1.append(sin(HALFPI/ZTILTSMOOTHNESS)*i)
-	zcamtimer.connect("timeout",zcameratilt)
-	zcamtimer.wait_time = 0.05
-	zcamtimer.one_shot = false
-	add_child(zcamtimer)
-	zcamtimer.start()
+	pass
+#	
+#	const HALFPI = PI/2
+#	for i in range(ZTILTSMOOTHNESS):
+#		#change the inside to change the interpolation you want
+#		ztiltlist1.append(sin(HALFPI/ZTILTSMOOTHNESS)*i)
+#		#print(sin(HALFPI/ZTILTSMOOTHNESS)*i)
+#	zcamtimer.connect("timeout",zcameratilt)
+#	zcamtimer.wait_time = 0.05
+#	zcamtimer.one_shot = false
+#	add_child(zcamtimer)
+#	zcamtimer.start()
 	
 func rotate_vec(vec: Vector2, angle_deg: int) -> Vector2:
 	var rad = deg_to_rad(angle_deg)
@@ -50,6 +54,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 			
 func _physics_process(delta: float) -> void:
+	
+	
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -64,8 +71,12 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		ACCERATION = ACCERATION*1.3
 
+	
+
 	input_dir = Input.get_vector("left", "right", "forward", "back")
 	direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+	neck.rotation.z = lerp(neck.rotation.z, deg_to_rad(clamp(input_dir.x, -5, 5)), delta * cameratilt_speed)
 	
 	#if neckie < 1 and neckie > -1:
 	#	neckie += input_dir.x / 10
@@ -108,22 +119,19 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 var zci = 0
-func zcameratilt():
-	if input_dir.x:
-		if zci < ZTILTSMOOTHNESS-1:
-			zci += 1
-	else:
-		#fix this pls if you can
-		neck.rotation.z = (ztiltlist1[zci]*input_dir.x)/ZTILTSMOOTHNESS
-		if zci > 0:
-			zci -= 1
-			print(zci)
-		
-		#elif zci < 0: zci += 1
-	neck.rotation.z = (ztiltlist1[zci]*input_dir.x)/ZTILTSMOOTHNESS
-	
-	
-		
+#func zcameratilt():
+#	if input_dir.x:
+#		if zci < ZTILTSMOOTHNESS-1:
+#			zci += 1
+#	else:
+#		#fix this pls if you can
+#		neck.rotation.z = (ztiltlist1[zci]*input_dir.x)/ZTILTSMOOTHNESS
+#		if zci > 0:
+#			zci -= 1
+#			print(zci)
+#		
+#		#elif zci < 0: zci += 1
+#	neck.rotation.z = (ztiltlist1[zci]*input_dir.x)/ZTILTSMOOTHNESS
 	
 
 
