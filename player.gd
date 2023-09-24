@@ -66,10 +66,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		$CollisionShape3D.scale.y = 1
 		
-	# Handle Jump.
-	if Input.is_action_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		ACCERATION = ACCERATION*1.3
+	
 
 	
 
@@ -90,7 +87,11 @@ func _physics_process(delta: float) -> void:
 	
 	#smoother attemp using sine wave
 	
-	
+	# Handle Jump.
+	if Input.is_action_pressed("ui_accept") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		if velocity.z > 0 and Input.is_action_pressed("crouch"):
+			ACCERATION = ACCERATION*1.3
 	
 	if direction: 
 		if ACCERATION < 1.05:
@@ -106,8 +107,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x = velocity.x/1.05
 			velocity.z = velocity.z/1.05
 		
-		if ACCERATION > 0:
+		if ACCERATION > 0 and not isgrounded:
 			ACCERATION -= 0.05
+		elif ACCERATION > 0 and isgrounded:
+			ACCERATION -= .4
 #		var vec = rotate_vec(Vector2(ACCERATION,0),neck.rotation_degrees.y)
 #		print(vec)
 #		velocity = velocity - Vector3(-vec.x,0,-vec.y)
