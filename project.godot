@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 
 Telemetry="*res://internal/telemetry.tscn"
 
+[display]
+
+window/vsync/vsync_mode=0
+
 [filesystem]
 
 import/fbx/enabled=false

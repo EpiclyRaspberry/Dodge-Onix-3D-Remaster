@@ -22,7 +22,7 @@ const HALFPI = PI/2
 #const ZTILTSMOOTHNESS = 20
 #var ztiltlist1 = []
 
-var cameratilt_speed = 5
+var cameratilt_speed = 10
 
 func _ready():
 	pass
@@ -76,7 +76,7 @@ func _physics_process(delta: float) -> void:
 	input_dir = Input.get_vector("left", "right", "forward", "back")
 	direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-	neck.rotation.z = lerp(neck.rotation.z, deg_to_rad(clamp(input_dir.x, -5, 5)), delta * cameratilt_speed)
+	neck.rotation.z = lerp(neck.rotation.z, deg_to_rad(clamp(input_dir.x * 1.5, -5, 5)), delta * cameratilt_speed)
 	
 	#if neckie < 1 and neckie > -1:
 	#	neckie += input_dir.x / 10
@@ -106,7 +106,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = velocity.x/1.05
 			velocity.z = velocity.z/1.05
 		
-		ACCERATION = 0
+		if ACCERATION > 0:
+			ACCERATION -= 0.05
 #		var vec = rotate_vec(Vector2(ACCERATION,0),neck.rotation_degrees.y)
 #		print(vec)
 #		velocity = velocity - Vector3(-vec.x,0,-vec.y)

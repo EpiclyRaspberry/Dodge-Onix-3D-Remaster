@@ -21,11 +21,13 @@ func requestserver(hwid, fps, godotversion, platform):
 	$HTTPRequest2.request('http://127.0.0.1:8000/telemetry/?hwid={hwid}&fps={fps}&gdver={godotversion}&platform={platform}'.format({"hwid": hwid, "fps": fps, "godotversion": godotversion, "platform": platform}), headers, HTTPClient.METHOD_POST)
 
 func _ready():
-	requestserver(OS.get_unique_id(), avgframe, get_godotversion(), OS.get_name())
+	pass
+	#requestserver(OS.get_unique_id(), avgframe, get_godotversion(), OS.get_name())
 	
 func _on_timer_timeout():
-	frametime.clear()
-	requestserver(OS.get_unique_id(), avgframe, get_godotversion(), OS.get_name())
+	pass
+	#frametime.clear()
+	#requestserver(OS.get_unique_id(), avgframe, get_godotversion(), OS.get_name())
 
 func _on_getframetime_timeout():
 	frametime.append(Engine.get_frames_per_second())
