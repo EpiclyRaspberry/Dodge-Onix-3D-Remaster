@@ -1,0 +1,276 @@
+[gd_scene format=3 uid="uid://qi5hh2qn3flu"]
+
+[node name="discord" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.5
+offset_top = -323.0
+offset_right = 575.5
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -656.5
+offset_top = -424.0
+offset_right = 656.5
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.192157, 0.2, 0.219608, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -399.5
+offset_top = -243.0
+offset_right = 412.5
+offset_bottom = 331.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="textbox" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox2" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox3" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox4" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox5" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox6" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox7" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox8" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox9" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox10" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox11" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox12" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox13" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox14" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox15" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox16" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox17" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox18" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox19" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox20" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox21" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox22" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox23" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox24" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox25" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="textbox26" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "im so fresh u can suck my nuts"
+
+[node name="bar2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -329.0
+offset_bottom = 329.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.168627, 0.176471, 0.192157, 1)
+
+[node name="bar3" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -582.5
+offset_top = 24.0
+offset_right = 573.5
+offset_bottom = 77.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+color = Color(0.192157, 0.2, 0.219608, 1)
+
+[node name="bar4" type="ColorRect" parent="bar3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -578.0
+offset_top = -1.0
+offset_right = 578.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+color = Color(0.0901961, 0.0980392, 0.109804, 0.447059)
+
+[node name="Label" type="Label" parent="bar3"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 11.0
+offset_right = 835.0
+offset_bottom = 37.0
+text = "# chat | and then you go and spoil it all by saying something stupid like \"i love you\"."
+
+[node name="barleft" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -329.0
+offset_right = 165.0
+offset_bottom = 329.0
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.168627, 0.176471, 0.192157, 1)
+
+[node name="bar5" type="ColorRect" parent="barleft"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.5
+offset_top = -576.0
+offset_right = 1066.5
+offset_bottom = -572.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+color = Color(0.0901961, 0.0980392, 0.109804, 0.447059)
+
+[node name="Label" type="Label" parent="barleft"]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 41.0
+offset_right = 161.0
+offset_bottom = 67.0
+text = "Onix Client	 (Wind... ↓"
+
+[node name="Label2" type="Label" parent="barleft"]
+layout_mode = 1
+offset_left = 6.0
+offset_top = 160.0
+offset_right = 161.0
+offset_bottom = 342.0
+text = "# chat
+# images
+# commands
+
+# 1-word-story
+
+# cool-chat"
+
+[node name="bar" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -577.5
+offset_top = -2.0
+offset_right = 578.5
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+color = Color(0.117647, 0.121569, 0.133333, 1)
+
+[node name="Label" type="Label" parent="bar"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 63.0
+offset_bottom = 28.0
+text = "discord"
