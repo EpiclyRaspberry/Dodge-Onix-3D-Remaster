@@ -48,13 +48,8 @@ shape = SubResource("CapsuleShape3D_mws0y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.692235, 0)
 doppler_tracking = 2
 
-[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/Neck/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692235, 0)
-light_energy = 16.0
-spot_range = 42.3564
-spot_angle = 30.8605
-
 [node name="Control" type="Control" parent="CharacterBody3D/Neck/Camera3D"]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,6 +62,7 @@ offset_right = 576.0
 offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="fpslabel" type="RichTextLabel" parent="CharacterBody3D/Neck/Camera3D/Control"]
 layout_mode = 0
@@ -74,6 +70,12 @@ offset_right = 80.0
 offset_bottom = 40.0
 text = "FPS"
 fit_content = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/Neck/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692235, 0)
+light_energy = 16.0
+spot_range = 42.3564
+spot_angle = 30.8605
 
 [node name="ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.14033, 0)

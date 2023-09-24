@@ -62,6 +62,7 @@ func _physics_process(delta: float) -> void:
 	# Handle Jump.
 	if Input.is_action_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		ACCERATION = ACCERATION*1.3
 
 	input_dir = Input.get_vector("left", "right", "forward", "back")
 	direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
