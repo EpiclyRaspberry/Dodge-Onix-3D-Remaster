@@ -15,22 +15,17 @@ func sum_array(array):
 func get_godotversion():
 	return "{major}.{minor}".format({"major" :str(Engine.get_version_info().major),"minor": str(Engine.get_version_info().minor)})
 	# this shit is terrible dont touch this
-		
-func get_ipv4():
-	requesting = true
-	$HTTPRequest.request("https://api.ipify.org", headers, HTTPClient.METHOD_GET)
 
 		
-func requestserver(hwid, fps, godotversion, platform, ip):
-	$HTTPRequest2.request('http://188.166.176.130:8000/telemetry/?hwid={hwid}&fps={fps}&gdver={godotversion}&platform={platform}&ip={ip}'.format({"hwid": hwid, "fps": fps, "godotversion": godotversion, "platform": platform,"ip": ip}), headers, HTTPClient.METHOD_POST)
+func requestserver(hwid, fps, godotversion, platform):
+	$HTTPRequest2.request('http://188.166.176.130:8000/telemetry/?hwid={hwid}&fps={fps}&gdver={godotversion}&platform={platform}'.format({"hwid": hwid, "fps": fps, "godotversion": godotversion, "platform": platform}), headers, HTTPClient.METHOD_POST)
 
 func _ready():
-	requestserver(OS.get_unique_id(), avgframe, get_godotversion(), OS.get_name(), ipv4)
-	get_ipv4()
+	requestserver(OS.get_unique_id(), avgframe, get_godotversion(), OS.get_name())
 	
 func _on_timer_timeout():
 	frametime.clear()
-	requestserver(OS.get_unique_id(), avgframe, get_godotversion(), OS.get_name(), ipv4)
+	requestserver(OS.get_unique_id(), avgframe, get_godotversion(), OS.get_name())
 
 func _on_getframetime_timeout():
 	frametime.append(Engine.get_frames_per_second())
