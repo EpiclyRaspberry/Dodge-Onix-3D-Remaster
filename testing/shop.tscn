@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyuso03fdn81r"]
+
+[ext_resource type="Texture2D" uid="uid://dhgqthflu844j" path="res://assets/ui/rounded.png" id="1_l3kn4"]
+[ext_resource type="Texture2D" uid="uid://bhyqgum7tyjn8" path="res://assets/ui/roundedleft.png" id="2_pad4c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cymjr"]
+font_size = 27
+
+[node name="shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -577.5
+offset_top = -323.0
+offset_right = 577.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="box" type="TextureRect" parent="menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -577.5
+offset_top = -156.5
+offset_right = 577.5
+offset_bottom = 157.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_l3kn4")
+expand_mode = 1
+
+[node name="roundleft" type="TextureRect" parent="menu/box"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 235.5
+offset_top = -157.0
+offset_right = 265.5
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pad4c")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.357
+anchor_top = 0.5
+anchor_right = 0.357
+anchor_bottom = 0.5
+offset_left = -394.335
+offset_top = -136.5
+offset_right = 394.665
+offset_bottom = 133.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "bepis valley"
+label_settings = SubResource("LabelSettings_cymjr")
