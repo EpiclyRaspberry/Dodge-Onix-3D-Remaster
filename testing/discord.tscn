@@ -1,251 +1,231 @@
-[gd_scene format=3 uid="uid://qi5hh2qn3flu"]
+[gd_scene load_steps=2 format=3 uid="uid://qi5hh2qn3flu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wkht1"]
+font_size = 13
 
 [node name="discord" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -575.5
-offset_top = -323.0
-offset_right = 575.5
-offset_bottom = 323.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="bg" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -656.5
-offset_top = -424.0
-offset_right = 656.5
-offset_bottom = 424.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 color = Color(0.192157, 0.2, 0.219608, 1)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="content" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -399.5
-offset_top = -243.0
-offset_right = 412.5
-offset_bottom = 331.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="content"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.088
+anchor_right = 0.858
+anchor_bottom = 1.0
+offset_left = 0.199997
+offset_top = -0.0240059
+offset_right = -0.416016
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="content/ScrollContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="textbox" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox2" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox2" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox3" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox3" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox4" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox4" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox5" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox5" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox6" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox6" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox7" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox7" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox8" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox8" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox9" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox9" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox10" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox10" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox11" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox11" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox12" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox12" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox13" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox13" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox14" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox14" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox15" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox15" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox16" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox16" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox17" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox17" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox18" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox18" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox19" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox19" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox20" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox20" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox21" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox21" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox22" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox22" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox23" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox23" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox24" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox24" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox25" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox25" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="textbox26" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="textbox26" type="Label" parent="content/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "im so fresh u can suck my nuts"
 
-[node name="bar2" type="ColorRect" parent="."]
+[node name="bar2" type="ColorRect" parent="content"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = -1
+anchor_left = 0.857
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -165.0
-offset_top = -329.0
-offset_bottom = 329.0
+anchor_bottom = 1.0
+offset_left = -0.264038
+offset_top = -5.0
+offset_bottom = 5.0
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 4
 color = Color(0.168627, 0.176471, 0.192157, 1)
 
-[node name="bar3" type="ColorRect" parent="."]
+[node name="bar3" type="ColorRect" parent="content"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -582.5
-offset_top = 24.0
-offset_right = 573.5
-offset_bottom = 77.0
+anchors_preset = -1
+anchor_left = 0.148
+anchor_top = 0.035
+anchor_right = 1.0
+anchor_bottom = 0.082
+offset_left = -0.496002
+offset_top = 0.32
+offset_right = 2.0
+offset_bottom = -0.136002
 grow_horizontal = 2
 size_flags_horizontal = 4
 color = Color(0.192157, 0.2, 0.219608, 1)
 
-[node name="bar4" type="ColorRect" parent="bar3"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -578.0
-offset_top = -1.0
-offset_right = 578.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-color = Color(0.0901961, 0.0980392, 0.109804, 0.447059)
-
-[node name="Label" type="Label" parent="bar3"]
-layout_mode = 0
-offset_left = 190.0
-offset_top = 11.0
-offset_right = 835.0
-offset_bottom = 37.0
-text = "# chat | and then you go and spoil it all by saying something stupid like \"i love you\"."
-
-[node name="barleft" type="ColorRect" parent="."]
+[node name="Label" type="Label" parent="content/bar3"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -329.0
-offset_right = 165.0
-offset_bottom = 329.0
+offset_top = -13.0
+offset_right = 645.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "# chat | and then you go and spoil it all by saying something stupid like \"i love you\"."
+
+[node name="barleft" type="ColorRect" parent="content"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.143
+anchor_bottom = 1.008
+offset_top = -5.0
+offset_right = 0.263992
+offset_bottom = -0.184021
 grow_vertical = 2
 size_flags_horizontal = 4
 color = Color(0.168627, 0.176471, 0.192157, 1)
 
-[node name="bar5" type="ColorRect" parent="barleft"]
+[node name="bar5" type="ColorRect" parent="content/barleft"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -89.5
-offset_top = -576.0
-offset_right = 1066.5
-offset_bottom = -572.0
+anchors_preset = -1
+anchor_top = 0.09
+anchor_right = 7.0
+anchor_bottom = 0.093
+offset_left = -1.0
+offset_top = -2.22
+offset_right = -0.00012207
+offset_bottom = -0.194
 grow_horizontal = 2
-grow_vertical = 0
 size_flags_horizontal = 4
 color = Color(0.0901961, 0.0980392, 0.109804, 0.447059)
 
-[node name="Label" type="Label" parent="barleft"]
+[node name="Label2" type="Label" parent="content/barleft"]
 layout_mode = 1
-offset_left = 2.0
-offset_top = 41.0
-offset_right = 161.0
-offset_bottom = 67.0
-text = "Onix Client	 (Wind... ↓"
-
-[node name="Label2" type="Label" parent="barleft"]
-layout_mode = 1
-offset_left = 6.0
-offset_top = 160.0
-offset_right = 161.0
-offset_bottom = 342.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -92.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_vertical = 2
 text = "# chat
 # images
 # commands
@@ -254,23 +234,38 @@ text = "# chat
 
 # cool-chat"
 
-[node name="bar" type="ColorRect" parent="."]
+[node name="servertitle" type="Label" parent="content/barleft"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -577.5
-offset_top = -2.0
-offset_right = 578.5
-offset_bottom = 23.0
+anchors_preset = -1
+anchor_top = 0.044
+anchor_right = 0.994
+anchor_bottom = 0.085
+offset_top = 0.0479984
+offset_right = -0.0100098
+offset_bottom = 0.0699997
+text = "Onix Client (Windows 10, x64)"
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="bar" type="ColorRect" parent="content"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.039
+offset_left = -2.0
+offset_right = 2.0
+offset_bottom = -0.272001
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 color = Color(0.117647, 0.121569, 0.133333, 1)
 
-[node name="Label" type="Label" parent="bar"]
+[node name="Label" type="Label" parent="content/bar"]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 2.0
-offset_right = 63.0
-offset_bottom = 28.0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 62.0
+offset_bottom = 22.0
 text = "discord"
+label_settings = SubResource("LabelSettings_wkht1")
