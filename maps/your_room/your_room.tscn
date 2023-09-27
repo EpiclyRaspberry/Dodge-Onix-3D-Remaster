@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://1bq8w22r32d"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_owj3d"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a8mpy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e20kb"]
+radius = 0.519583
+height = 2.04952
+
+[node name="your_room" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+script = ExtResource("1_owj3d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_a8mpy")
+
+[node name="playercol" type="Area3D" parent="CharacterBody3D/CollisionShape3D"]
+
+[node name="playercolcol" type="CollisionShape3D" parent="CharacterBody3D/CollisionShape3D/playercol"]
+shape = SubResource("CapsuleShape3D_e20kb")
+
+[node name="Neck" type="Node3D" parent="CharacterBody3D"]
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.692235, 0)
+doppler_tracking = 2
+
+[node name="Control" type="Control" parent="CharacterBody3D/Neck/Camera3D"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="fpslabel" type="RichTextLabel" parent="CharacterBody3D/Neck/Camera3D/Control"]
+layout_mode = 1
+offset_right = 80.0
+offset_bottom = 40.0
+text = "FPS"
+fit_content = true
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody3D/Neck/Camera3D/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/Neck/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.692235, 0)
+light_energy = 16.0
+spot_range = 42.3564
+spot_angle = 30.8605
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 112.367, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(55.9585, 89.3657, 90.9139)
+
+[connection signal="body_entered" from="CharacterBody3D/CollisionShape3D/playercol" to="CharacterBody3D" method="_on_playercol_body_entered"]
+[connection signal="body_exited" from="CharacterBody3D/CollisionShape3D/playercol" to="CharacterBody3D" method="_on_playercol_body_exited"]

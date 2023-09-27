@@ -66,7 +66,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		$CollisionShape3D.scale.y = 1
 		
-	
 
 	
 
