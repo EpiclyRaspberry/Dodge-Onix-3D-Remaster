@@ -17,6 +17,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var isgrounded: bool = false
 var can_abh: bool = false
 const HALFPI = PI/2
+var crouching = false
 ##camera stuffs
 #var zcamtimer = Timer.new()
 #const ZTILTSMOOTHNESS = 20
@@ -61,10 +62,13 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	if Input.is_action_pressed("crouch"):
-		$CollisionShape3D.scale.y = 0.5
-	else:
-		$CollisionShape3D.scale.y = 1
+	if Input.is_action_just_pressed("crouch"):
+		if crouching:
+			$CollisionShape3D.scale.y = 1
+			crouching  = false
+		else:
+			$CollisionShape3D.scale.y =  0.5
+			crouching = true
 		
 
 	
