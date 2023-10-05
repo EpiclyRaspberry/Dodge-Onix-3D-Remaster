@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://main.gd" id="1_h2t6g"]
 [ext_resource type="Script" path="res://player.gd" id="1_i7i5w"]
 [ext_resource type="Texture2D" uid="uid://b1tfkw4huo6ji" path="res://1024x1024.png" id="2_nu84c"]
-[ext_resource type="Texture2D" uid="uid://brddb4p6xkjkb" path="res://assets/ui/arrow.png" id="3_ay15e"]
-[ext_resource type="Texture2D" uid="uid://cuar3exhr32jd" path="res://assets/ui/crouch.png" id="4_k4h6g"]
+[ext_resource type="Texture2D" uid="uid://jckcnqb43jht" path="res://assets/ui/arrow.png" id="3_ay15e"]
+[ext_resource type="Texture2D" uid="uid://cea5jtmxhrtk8" path="res://assets/ui/crouch.png" id="4_k4h6g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_os6k1"]
 

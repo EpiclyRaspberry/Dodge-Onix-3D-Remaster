@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cciyj3xbufnmy"]
+
+[ext_resource type="FontFile" uid="uid://dqfk7jx208u2t" path="res://assets/fonts/Poppins-Regular.ttf" id="1_jmvhr"]
+
+[resource]
+default_font = ExtResource("1_jmvhr")
+Label/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_uneditable_color = Color(1, 1, 1, 1)
